@@ -6,6 +6,8 @@ import {
 import Home from './Pages/Home';
 import Home2 from './Pages/Home2';
 import TotalReview from './Pages/TotalReview';
+import Pendingreview from './Pages/Pendingreview';
+import Settingpage from './Pages/Settingpage';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,12 @@ const router = createBrowserRouter([
   },  {
     path: "/totalreview",
     element: <TotalReview/>,
+  },  {
+    path: "/pendingreview",
+    element: <Pendingreview/>,
+  }, {
+    path: "/settingpage",
+    element: <Settingpage/>,
   }, 
 ]);
 

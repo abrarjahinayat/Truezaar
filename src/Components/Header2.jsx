@@ -77,7 +77,7 @@ const Header2 = () => {
                       </li>
                       <li className="flex hover:bg-navbar/50 items-center mt-2 gap-x-3">
                         <IoMdSettings className="text-3xl" />
-                        <span className="text-2xl font-inria font-bold text-font-color">Settings and Privacy</span>
+                        <Link to={'/settingpage'} className="text-2xl font-inria font-bold text-font-color">Settings and Privacy</Link>
                       </li>
                       <li className="flex hover:bg-navbar/50 items-center mt-2 gap-x-3">
                         <FaQuestionCircle className="text-3xl" />
@@ -135,7 +135,7 @@ const Header2 = () => {
                <li className="flex  items-center gap-x-3" ><AiTwotoneMail className=" text-2xl w-10 h-10 bg-transparent rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light text-font-color font-inria bg-[#FFFFFF] rounded-md hover:bg-navbar/50 shadow-xs border border-black/10 py-2 px-2 w-60 " >alammahbub963@gmail.com</span> </li>     
                <li className="flex  items-center py-3 gap-x-3" ><IoMdCall  className=" text-xl w-10 h-10 bg-transparent  rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light hover:bg-navbar/50 text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60 " >01600000001</span> </li>   
                  <Link to={"/totalreview"} className="flex items-center gap-x-3" ><RiHandCoinLine  className=" text-2xl w-10 h-10 bg-transparent  rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50  font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60 " >Total review  10</span> </Link>    
-                  <li className="flex  items-center py-3 gap-x-3" ><ImBubbles4  className=" text-2xl w-10 h-10 bg-gray-200 rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50 font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60" >Pending review  02</span> </li> 
+                  <Link to={'/pendingreview'} className="flex  items-center py-3 gap-x-3" ><ImBubbles4  className=" text-2xl w-10 h-10 bg-gray-200 rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50 font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60" >Pending review  02</span> </Link> 
                   <li className="flex  items-center py-3 gap-x-3" ><HiOutlineUserGroup  className=" text-2xl w-10 h-10 bg-gray-200 rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light text-font-color font-inria bg-[#FFFFFF] hover:bg-navbar/50 rounded-md shadow-xs border border-black/10 py-2 px-2 w-60" >Reported review  00 </span> </li>
                
             </ul>
