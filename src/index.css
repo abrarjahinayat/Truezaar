@@ -11,6 +11,10 @@
 
 @layer components{
      .container {
-    @apply mx-auto !max-w-[1290px];
+    @apply mx-auto !max-w-[1290px] px-2.5 lg:px-0 ;
+  }
+
+    .on{
+    @apply after:content-[''] after:w-50 after:bg-[#1D483B] after:h-50 after:absolute hover:cursor-pointer;
   }
 }

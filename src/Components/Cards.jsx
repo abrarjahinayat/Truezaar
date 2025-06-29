@@ -15,16 +15,16 @@ const handlemore =()=>{
 }
 
   return (
-    <section className=" bg-card-bg/30 py-7 ">
+    <section className=" bg-card-bg/30 pb-5 lg:py-7 ">
       <div className="container">
-        <div className="flex justify-between " >
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+        <div className="lg:flex-row flex-wrap flex mt-5 justify-between " >
+        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card1} alt="card-image" />
+            <img className="w-[200px] lg:w-full " src={card1} alt="card-image" />
           </div>
-          <div className="p-4">
+          <div className="p-4  ">
             <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
+              <BsPersonCircle className="text-4xl  " />
               <div>
                 <h3 className=" text-font-color text-xl font-inria font-bold">
                   Mahbub Alam
@@ -34,21 +34,21 @@ const handlemore =()=>{
                 </h6>
               </div>
             </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
+            <h4 className="font-inter text-font-color  mt-4 text-md font-bold">
               MOXX MPod Airbud..
             </h4>
             <p className="text-font-color/90  font-inter italic font-light text-md ">
               This airbud is not good for long time use........
             </p>
           </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
+          <div className="px-4  flex items-center gap-x-1 pb-4 ">
             <h6 className="font-inter font-normal text-md">3.5/5</h6>
             <FaStar className="text-[#F0F005]" />
           </div>
         </div>   
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60 ">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card2} alt="card-image" />
+            <img className="w-[200px] lg:w-full " src={card2} alt="card-image" />
           </div>
           <div className="p-4">
             <div className="flex items-center gap-x-2">
@@ -74,9 +74,9 @@ const handlemore =()=>{
             <FaStar className="text-[#F0F005]" />
           </div>
         </div> 
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card3} alt="card-image" />
+            <img className="w-[200px] lg:w-full " src={card3} alt="card-image" />
           </div>
           <div className="p-4">
             <div className="flex items-center gap-x-2">
@@ -102,7 +102,7 @@ const handlemore =()=>{
             <FaStar className="text-[#F0F005]" />
           </div>
         </div>
-         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
             <img src={card4} alt="card-image" />
           </div>
@@ -135,14 +135,14 @@ const handlemore =()=>{
         </div>
             {
                showmore&& 
-        <div className="flex mt-5 justify-between " >
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+        <div className="lg:flex-row flex-wrap flex mt-5 justify-between " >
+        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card1} alt="card-image" />
+            <img className="w-[200px] lg:w-full " src={card1} alt="card-image" />
           </div>
-          <div className="p-4">
+          <div className="p-4  ">
             <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
+              <BsPersonCircle className="text-4xl  " />
               <div>
                 <h3 className=" text-font-color text-xl font-inria font-bold">
                   Mahbub Alam
@@ -152,21 +152,21 @@ const handlemore =()=>{
                 </h6>
               </div>
             </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
+            <h4 className="font-inter text-font-color  mt-4 text-md font-bold">
               MOXX MPod Airbud..
             </h4>
             <p className="text-font-color/90  font-inter italic font-light text-md ">
               This airbud is not good for long time use........
             </p>
           </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
+          <div className="px-4  flex items-center gap-x-1 pb-4 ">
             <h6 className="font-inter font-normal text-md">3.5/5</h6>
             <FaStar className="text-[#F0F005]" />
           </div>
         </div>   
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60 ">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card2} alt="card-image" />
+            <img className="w-[200px] lg:w-full " src={card2} alt="card-image" />
           </div>
           <div className="p-4">
             <div className="flex items-center gap-x-2">
@@ -192,9 +192,9 @@ const handlemore =()=>{
             <FaStar className="text-[#F0F005]" />
           </div>
         </div> 
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card3} alt="card-image" />
+            <img className="w-[200px] lg:w-full " src={card3} alt="card-image" />
           </div>
           <div className="p-4">
             <div className="flex items-center gap-x-2">
@@ -220,7 +220,7 @@ const handlemore =()=>{
             <FaStar className="text-[#F0F005]" />
           </div>
         </div>
-         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-60">
+         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
           <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
             <img src={card4} alt="card-image" />
           </div>
@@ -252,7 +252,7 @@ const handlemore =()=>{
 
         </div>
             }
-          <button onClick={handlemore} type="button" class="text-font-color block relative -mt-10 mx-auto leading-6 cursor-pointer shadow-xl/40 tracking-[2px] bg-[#F5F5F5] font-normal font-inter rounded-md text-xl px-18 py-5 ">More Review</button>
+          <button onClick={handlemore} type="button" class="text-font-color block relative -mt-10 mx-auto leading-6 cursor-pointer shadow-xl/40 tracking-[2px] bg-[#F5F5F5] font-normal font-inter rounded-md text-md lg:text-xl px-12 lg:px-18 py-3 lg:py-5 ">More Review</button>
       </div>
     </section>
   );
