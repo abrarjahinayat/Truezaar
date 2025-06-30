@@ -8,6 +8,10 @@ import Home2 from './Pages/Home2';
 import TotalReview from './Pages/TotalReview';
 import Pendingreview from './Pages/Pendingreview';
 import Settingpage from './Pages/Settingpage';
+import Blog from './Pages/Blog';
+import ProductReview from './Pages/ProductReview';
+import Aboutus from './Pages/Aboutus';
+import Contactus from './Pages/Contactus';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +29,18 @@ const router = createBrowserRouter([
   }, {
     path: "/settingpage",
     element: <Settingpage/>,
+  }, {
+    path: "/blog",
+    element: <Blog/>,
+  }, {
+    path: "/productreview",
+    element: <ProductReview/>,
+  }, {
+    path: "/aboutus",
+    element: <Aboutus/>,
+  },  {
+    path: "/contactus",
+    element: <Contactus/>,
   }, 
 ]);
 

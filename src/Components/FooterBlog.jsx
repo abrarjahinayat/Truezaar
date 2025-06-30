@@ -6,7 +6,7 @@ import { FaInstagramSquare } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { Link } from 'react-router';
 
-const Footer = () => {
+const FooterBlog = () => {
   return (
     <section className='bg-font-color/75' >
         <div className="container">
@@ -16,7 +16,7 @@ const Footer = () => {
                         <Link to={"/contactus"}>Contuct us</Link>
                         <Link to={ "/aboutus"} className='lg:mt-3' >About us</Link>
                         <Link to={"/productreview"} className='lg:mt-3 mb-3' >Report review</Link>
-                        <Link to={"/blog"} > Blog </Link>
+                        
                     </ul>
                 </div>
                 <div className='lg:w-2/3'>
@@ -58,4 +58,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default FooterBlog

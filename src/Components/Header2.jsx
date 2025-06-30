@@ -32,12 +32,12 @@ const Header2 = () => {
       <nav className="bg-navbar/70">
         <div className="container">
           <div className="flex py-1.5  items-center justify-between">
-            <div className="flex items-center gap-x-2 lg:gap-x-4">
+            <Link to={"/home2"} className="flex items-center gap-x-2 lg:gap-x-4">
               <img src={Logo} alt="logo" />
               <h2 className="font-inter lg:tracking-[3px] text-[#FFFFFF] lg:text-3xl font-light">
                 TRUEZAAR
               </h2>
-            </div>
+            </Link>
 
             <FaBars onClick={handlebar} className="lg:hidden text-3xl" />
 
