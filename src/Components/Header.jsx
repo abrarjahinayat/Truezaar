@@ -41,13 +41,13 @@ const Header = () => {
             </div>
 
             <div className="hidden lg:block">
-              <button
+              <Link to={'/signupform'}
                 type="button"
                 class="text-white bg-navbar font-light font-inter rounded-md text-md px-9 py-3 "
               >
                 Sign Up
-              </button>
-              <Link to={'/home2'}
+              </Link>
+              <Link to={'/loginform'}
                 type="button"
                 class="text-white bg-navbar font-light font-inter rounded-md ml-13  text-md px-9 py-3  "
               >

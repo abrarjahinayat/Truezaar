@@ -12,6 +12,8 @@ import Blog from './Pages/Blog';
 import ProductReview from './Pages/ProductReview';
 import Aboutus from './Pages/Aboutus';
 import Contactus from './Pages/Contactus';
+import LoginForm from './Pages/LoginForm';
+import SignUpForm from './Pages/SignUpForm';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,12 @@ const router = createBrowserRouter([
   },  {
     path: "/contactus",
     element: <Contactus/>,
+  }, {
+    path: "/loginform",
+    element: <LoginForm/>,
+  }, {
+    path: "/signupform",
+    element: <SignUpForm/>,
   }, 
 ]);
 
