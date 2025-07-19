@@ -12,9 +12,15 @@ import { RiHandCoinLine } from "react-icons/ri";
 import { ImBubbles4 } from "react-icons/im";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { MdCloseFullscreen } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
+import { useSelector } from "react-redux";
+import { getAuth, signOut } from "firebase/auth";
 
 const Header2 = () => {
+  const navigation = useNavigate()
+  const auth = getAuth();
+  const user = useSelector((state) => state.userLogin.value);
+  console.log(user)
   const [toggle, settoggle] = useState(false);
   const [profile, setprofile] = useState (false);
   const [showDropdown, setShowDropdown] = useState(false); // new state for hover menu
@@ -23,10 +29,20 @@ const Header2 = () => {
     settoggle(!toggle);
   };
 
+
   const handleProfile= ()=>{
     setprofile(!profile)
   }
-
+    const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("logout")
+        navigation("/loginform");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
   return (
     <header>
       <nav className="bg-navbar/70">
@@ -73,7 +89,7 @@ const Header2 = () => {
                     <ul >
                       <li onClick={handleProfile} className="flex hover:bg-navbar/50 items-center gap-x-3">
                         <BsPersonCircle className="text-3xl" />
-                        <span className="text-2xl font-inria font-bold text-font-color">Mahbub Alam</span>
+                        <span className="text-2xl font-inria font-bold text-font-color">{user?.displayName}</span>
                       </li>
                       <li className="flex hover:bg-navbar/50 items-center mt-2 gap-x-3">
                         <IoMdSettings className="text-3xl" />
@@ -83,9 +99,9 @@ const Header2 = () => {
                         <FaQuestionCircle className="text-3xl" />
                         <span className="text-2xl font-inria font-bold text-font-color">Help and Support</span>
                       </li>
-                      <li className="flex hover:bg-navbar/50 items-center mt-2 gap-x-3">
+                      <li className="flex hover:bg-red-500 items-center mt-2 gap-x-3">
                         <LuLogOut className="text-3xl" />
-                        <span className="text-2xl font-inria font-bold text-font-color">Log Out</span>
+                        <span onClick={handleLogout}  className="text-2xl font-inria font-bold text-font-color">Log Out</span>
                       </li>
                     </ul>
                   </div>
@@ -129,10 +145,10 @@ const Header2 = () => {
             <MdCloseFullscreen onClick={handleProfile} className="text-4xl absolute top-5 right-5 cursor-pointer text-red-500 " />
             <div className="px-5"  >
                 <BsPersonCircle className="text-6xl " />
-                <h3 className="font-inter py-2 font-medium text-font-color text-3xl" >Mahbub Alam  </h3>
+                <h3 className="font-inter py-2 font-medium text-font-color text-3xl" >{user?.displayName} </h3>
             </div>
             <ul className="py-4 px-5" >
-               <li className="flex  items-center gap-x-3" ><AiTwotoneMail className=" text-2xl w-10 h-10 bg-transparent rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light text-font-color font-inria bg-[#FFFFFF] rounded-md hover:bg-navbar/50 shadow-xs border border-black/10 py-2 px-2 w-60 " >alammahbub963@gmail.com</span> </li>     
+               <li className="flex  items-center gap-x-3" ><AiTwotoneMail className=" text-2xl w-10 h-10 bg-transparent rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light text-font-color font-inria bg-[#FFFFFF] rounded-md hover:bg-navbar/50 shadow-xs border border-black/10 py-2 px-2 w-60 " >{user?.email}</span> </li>     
                <li className="flex  items-center py-3 gap-x-3" ><IoMdCall  className=" text-xl w-10 h-10 bg-transparent  rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light hover:bg-navbar/50 text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60 " >01600000001</span> </li>   
                  <Link to={"/totalreview"} className="flex items-center gap-x-3" ><RiHandCoinLine  className=" text-2xl w-10 h-10 bg-transparent  rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50  font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60 " >Total review  10</span> </Link>    
                   <Link to={'/pendingreview'} className="flex  items-center py-3 gap-x-3" ><ImBubbles4  className=" text-2xl w-10 h-10 bg-gray-200 rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50 font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60" >Pending review  02</span> </Link> 

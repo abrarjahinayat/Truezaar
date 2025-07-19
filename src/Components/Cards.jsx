@@ -6,253 +6,121 @@ import card4 from "../assets/images/card4.png";
 import { BsPersonCircle } from "react-icons/bs";
 import { FaStar } from "react-icons/fa6";
 
-
 const Cards = () => {
- const [showmore, setshowmore] = useState(false)
+  const [showmore, setshowmore] = useState(false);
 
-const handlemore =()=>{
-   setshowmore(!showmore)
-}
+  const handlemore = () => {
+    setshowmore(!showmore);
+  };
+
+  const CardComponent = ({ image, name, timeAgo, title, description, rating }) => (
+    <div className="relative mt-5 flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+      <div className="relative m-1.5 overflow-hidden text-white rounded-md">
+        <img className="w-full h-32 sm:h-40 object-cover" src={image} alt="card-image" />
+      </div>
+      <div className="p-2 sm:p-4 flex-1">
+        <div className="flex items-center gap-x-2">
+          <BsPersonCircle className="text-2xl sm:text-4xl flex-shrink-0" />
+          <div className="min-w-0">
+            <h3 className="text-font-color text-sm sm:text-xl font-inria font-bold truncate">
+              {name}
+            </h3>
+            <h6 className="italic font-light text-font-color/90 text-xs">
+              post on {timeAgo}
+            </h6>
+          </div>
+        </div>
+        <h4 className="font-inter text-font-color mt-2 sm:mt-4 text-sm sm:text-md font-bold line-clamp-2">
+          {title}
+        </h4>
+        <p className="text-font-color/90 font-inter italic font-light text-xs sm:text-md line-clamp-2">
+          {description}
+        </p>
+      </div>
+      <div className="px-2 sm:px-4 flex items-center gap-x-1 pb-2 sm:pb-4">
+        <h6 className="font-inter font-normal text-sm sm:text-md">{rating}/5</h6>
+        <FaStar className="text-[#F0F005]" />
+      </div>
+    </div>
+  );
+
+  const cardData = [
+    {
+      image: card1,
+      name: "Mahbub Alam",
+      timeAgo: "3 days ago",
+      title: "MOXX MPod Airbud..",
+      description: "This airbud is not good for long time use........",
+      rating: "3.5"
+    },
+    {
+      image: card2,
+      name: "Tahmid Khan",
+      timeAgo: "5 days ago",
+      title: "QCY T13 PRO Airbud",
+      description: "This airbud is good for long time use........",
+      rating: "4.5"
+    },
+    {
+      image: card3,
+      name: "Shohag Hossen",
+      timeAgo: "1 mon ago",
+      title: "K35 Dual Wireless M..",
+      description: "This microphone is good for long time use.",
+      rating: "4.0"
+    },
+    {
+      image: card4,
+      name: "Tanvir Hossain",
+      timeAgo: "4 mon ago",
+      title: "I Phone 20 Pro Max",
+      description: "This airbud is not good in this price phone....",
+      rating: "3.0"
+    }
+  ];
 
   return (
-    <section className=" bg-card-bg/30 pb-5 lg:py-7 ">
-      <div className="container">
-        <div className="lg:flex-row flex-wrap flex mt-5 justify-between " >
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img className="w-[200px] lg:w-full " src={card1} alt="card-image" />
-          </div>
-          <div className="p-4  ">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl  " />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                  Mahbub Alam
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 3 days ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color  mt-4 text-md font-bold">
-              MOXX MPod Airbud..
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-              This airbud is not good for long time use........
-            </p>
-          </div>
-          <div className="px-4  flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">3.5/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div>   
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60 ">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img className="w-[200px] lg:w-full " src={card2} alt="card-image" />
-          </div>
-          <div className="p-4">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                 Tahmid Khan
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 5 days ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
-              QCY T13 PRO Airbud
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-          This airbud is  good for long time use........
-            </p>
-          </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">4.5/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div> 
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img className="w-[200px] lg:w-full " src={card3} alt="card-image" />
-          </div>
-          <div className="p-4">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                 Shohag Hossen
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 1 mon ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
-             K35 Dual Wireless M..
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-             This microphone is  good for long time use.
-            </p>
-          </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">4.0/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div>
-         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card4} alt="card-image" />
-          </div>
-          <div className="p-4">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                 Tanvir Hossain
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 4 mon ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
-             I Phone 20 Pro Max
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-           This airbud is not good in this price phone....
-            </p>
-          </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">3.0/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
+    <section className="bg-card-bg/30 pb-5 lg:py-7">
+      <div className="container px-4">
+        {/* Initial 4 cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-5">
+          {cardData.map((card, index) => (
+            <CardComponent
+              key={index}
+              image={card.image}
+              name={card.name}
+              timeAgo={card.timeAgo}
+              title={card.title}
+              description={card.description}
+              rating={card.rating}
+            />
+          ))}
         </div>
 
+        {/* Additional cards when "Show More" is clicked */}
+        {showmore && (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mt-3 sm:mt-5">
+            {cardData.map((card, index) => (
+              <CardComponent
+                key={`more-${index}`}
+                image={card.image}
+                name={card.name}
+                timeAgo={card.timeAgo}
+                title={card.title}
+                description={card.description}
+                rating={card.rating}
+              />
+            ))}
+          </div>
+        )}
 
-        </div>
-            {
-               showmore&& 
-        <div className="lg:flex-row flex-wrap flex mt-5 justify-between " >
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img className="w-[200px] lg:w-full " src={card1} alt="card-image" />
-          </div>
-          <div className="p-4  ">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl  " />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                  Mahbub Alam
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 3 days ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color  mt-4 text-md font-bold">
-              MOXX MPod Airbud..
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-              This airbud is not good for long time use........
-            </p>
-          </div>
-          <div className="px-4  flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">3.5/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div>   
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60 ">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img className="w-[200px] lg:w-full " src={card2} alt="card-image" />
-          </div>
-          <div className="p-4">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                 Tahmid Khan
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 5 days ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
-              QCY T13 PRO Airbud
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-          This airbud is  good for long time use........
-            </p>
-          </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">4.5/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div> 
-        <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img className="w-[200px] lg:w-full " src={card3} alt="card-image" />
-          </div>
-          <div className="p-4">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                 Shohag Hossen
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 1 mon ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
-             K35 Dual Wireless M..
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-             This microphone is  good for long time use.
-            </p>
-          </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">4.0/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div>
-         <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-50 lg:w-60">
-          <div className="relative  m-1.5 overflow-hidden text-white rounded-md">
-            <img src={card4} alt="card-image" />
-          </div>
-          <div className="p-4">
-            <div className="flex items-center gap-x-2">
-              <BsPersonCircle className="text-4xl" />
-              <div>
-                <h3 className=" text-font-color text-xl font-inria font-bold">
-                 Tanvir Hossain
-                </h3>
-                <h6 className="italic font-light text-font-color/90 text-xs">
-                  post on 4 mon ago
-                </h6>
-              </div>
-            </div>
-            <h4 className="font-inter text-font-color mt-4 text-md font-bold">
-             I Phone 20 Pro Max
-            </h4>
-            <p className="text-font-color/90  font-inter italic font-light text-md ">
-           This airbud is not good in this price phone....
-            </p>
-          </div>
-          <div className="px-4 flex items-center gap-x-1 pb-4 ">
-            <h6 className="font-inter font-normal text-md">3.0/5</h6>
-            <FaStar className="text-[#F0F005]" />
-          </div>
-        </div>
-
-
-        </div>
-            }
-          <button onClick={handlemore} type="button" class="text-font-color block relative -mt-10 mx-auto leading-6 cursor-pointer shadow-xl/40 tracking-[2px] bg-[#F5F5F5] font-normal font-inter rounded-md text-md lg:text-xl px-12 lg:px-18 py-3 lg:py-5 ">More Review</button>
+        <button
+          onClick={handlemore}
+          type="button"
+          className="text-font-color block relative mt-6 sm:mt-8 lg:-mt-10 mx-auto leading-6 cursor-pointer shadow-xl/40 tracking-[2px] bg-[#F5F5F5] font-normal font-inter rounded-md text-sm sm:text-md lg:text-xl px-8 sm:px-12 lg:px-18 py-2 sm:py-3 lg:py-5 transition-all hover:bg-gray-200"
+        >
+          {showmore ? 'Show Less' : 'More Review'}
+        </button>
       </div>
     </section>
   );

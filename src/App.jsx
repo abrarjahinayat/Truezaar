@@ -14,6 +14,7 @@ import Aboutus from './Pages/Aboutus';
 import Contactus from './Pages/Contactus';
 import LoginForm from './Pages/LoginForm';
 import SignUpForm from './Pages/SignUpForm';
+import Productdetailes from './Pages/Productdetailes';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,9 @@ const router = createBrowserRouter([
   }, {
     path: "/signupform",
     element: <SignUpForm/>,
+  }, {
+    path: "/productdetailes",
+    element: <Productdetailes/>,
   }, 
 ]);
 
