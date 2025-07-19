@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import card1 from "../assets/images/card1.png";
 import card2 from "../assets/images/card2.png";
 import card3 from "../assets/images/card3.png";
@@ -8,13 +9,21 @@ import { FaStar } from "react-icons/fa6";
 
 const Cards = () => {
   const [showmore, setshowmore] = useState(false);
+  const navigate = useNavigate();
 
   const handlemore = () => {
     setshowmore(!showmore);
   };
 
+  const handleCardClick = () => {
+    navigate("/productdetailes");
+  };
+
   const CardComponent = ({ image, name, timeAgo, title, description, rating }) => (
-    <div className="relative mt-5 flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-full">
+    <div 
+      className="relative mt-5 flex flex-col bg-white shadow-sm border border-slate-200 rounded-lg w-full cursor-pointer transform transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+      onClick={handleCardClick}
+    >
       <div className="relative m-1.5 overflow-hidden text-white rounded-md">
         <img className="w-full h-32 sm:h-40 object-cover" src={image} alt="card-image" />
       </div>

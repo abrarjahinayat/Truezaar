@@ -21,19 +21,11 @@ const Header2 = () => {
   const auth = getAuth();
   const user = useSelector((state) => state.userLogin.value);
   console.log(user)
-  const [toggle, settoggle] = useState(false);
-  const [profile, setprofile] = useState (false);
-  const [showDropdown, setShowDropdown] = useState(false); // new state for hover menu
+  
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
 
-  const handlebar = () => {
-    settoggle(!toggle);
-  };
-
-
-  const handleProfile= ()=>{
-    setprofile(!profile)
-  }
-    const handleLogout = () => {
+  const handleLogout = () => {
     signOut(auth)
       .then(() => {
         console.log("logout")
@@ -43,19 +35,39 @@ const Header2 = () => {
         alert(error);
       });
   }
+
+  const handleMobileProfileClick = () => {
+    setShowDropdown(!showDropdown);
+  }
+
+  const handleMobileSearchClick = () => {
+    setShowMobileSearch(!showMobileSearch);
+  }
+
   return (
     <header>
-      <nav className="bg-navbar/70">
+      <nav className="bg-navbar/70 relative">
         <div className="container">
-          <div className="flex py-1.5  items-center justify-between">
+          <div className="flex py-1.5 items-center justify-between">
+            {/* Logo */}
             <Link to={"/home2"} className="flex items-center gap-x-2 lg:gap-x-4">
-              <img src={Logo} alt="logo" />
-              <h2 className="font-inter lg:tracking-[3px] text-[#FFFFFF] lg:text-3xl font-light">
+              <img src={Logo} alt="logo" className="w-12 h-12 lg:w-18 lg:h-18 rounded-full" />
+              <h2 className="font-inter lg:tracking-[3px] text-[#FFFFFF] text-lg sm:text-xl lg:text-3xl font-light">
                 TRUEZAAR
               </h2>
             </Link>
 
-            <FaBars onClick={handlebar} className="lg:hidden text-3xl" />
+            {/* Mobile Icons */}
+            <div className="flex lg:hidden items-center gap-x-3">
+              <CiSearch 
+                onClick={handleMobileSearchClick}
+                className="text-3xl sm:text-4xl text-white cursor-pointer hover:text-gray-300 transition-colors" 
+              />
+              <BsPersonCircle 
+                onClick={handleMobileProfileClick}
+                className="text-3xl sm:text-4xl text-white cursor-pointer hover:text-gray-300 transition-colors" 
+              />
+            </div>
 
             {/* Search Bar for Large Screens */}
             <div className="hidden lg:block">
@@ -74,34 +86,33 @@ const Header2 = () => {
               </form>
             </div>
 
-            {/* Profile Icon with Hover Dropdown */}
+            {/* Profile Icon with Hover Dropdown - Desktop Only */}
             <div className="hidden lg:block relative">
               <div
                 className="inline-block cursor-pointer"
                 onMouseEnter={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}
-             
               >
-                <BsPersonCircle className="text-5xl" />
+                <BsPersonCircle className="text-5xl text-white" />
 
                 {showDropdown && (
                   <div className="w-[300px] rounded-md py-10 pl-8 bg-[#F5F5F5] -right-10 mt-1 absolute z-50 shadow-lg">
-                    <ul >
-                      <li onClick={handleProfile} className="flex hover:bg-navbar/50 items-center gap-x-3">
+                    <ul>
+                      <li onClick={()=>{navigation('/profile')}} className="flex hover:bg-navbar/50 cursor-pointer items-center gap-x-3 p-2 rounded">
                         <BsPersonCircle className="text-3xl" />
                         <span className="text-2xl font-inria font-bold text-font-color">{user?.displayName}</span>
                       </li>
-                      <li className="flex hover:bg-navbar/50 items-center mt-2 gap-x-3">
+                      <li className="flex hover:bg-navbar/50 cursor-pointer items-center mt-2 gap-x-3 p-2 rounded">
                         <IoMdSettings className="text-3xl" />
                         <Link to={'/settingpage'} className="text-2xl font-inria font-bold text-font-color">Settings and Privacy</Link>
                       </li>
-                      <li className="flex hover:bg-navbar/50 items-center mt-2 gap-x-3">
+                      <li className="flex hover:bg-navbar/50 cursor-pointer items-center mt-2 gap-x-3 p-2 rounded">
                         <FaQuestionCircle className="text-3xl" />
                         <span className="text-2xl font-inria font-bold text-font-color">Help and Support</span>
                       </li>
-                      <li className="flex hover:bg-red-500 items-center mt-2 gap-x-3">
+                      <li className="flex hover:bg-red-500 cursor-pointer items-center mt-2 gap-x-3 p-2 rounded">
                         <LuLogOut className="text-3xl" />
-                        <span onClick={handleLogout}  className="text-2xl font-inria font-bold text-font-color">Log Out</span>
+                        <span onClick={handleLogout} className="text-2xl font-inria font-bold text-font-color">Log Out</span>
                       </li>
                     </ul>
                   </div>
@@ -110,54 +121,88 @@ const Header2 = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
-          {toggle && (
-            <div className="block absolute left-0 bg-navbar/80 w-full lg:hidden py-3 flex-col">
-              <button className="text-white block mx-auto bg-navbar font-light font-inter rounded-md text-md px-9 py-3">
-                Sign Up
-              </button>
-              <button className="text-white block mt-2 mx-auto bg-navbar font-light font-inter rounded-md text-md px-9 py-3">
-                Login
-              </button>
-
-              <div className="block px-2 py-3">
-                <form className="lg:w-[639px] w-full lg:mx-auto">
-                  <div className="relative">
-                    <div className="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
-                      <CiSearch className="text-2xl font-bold text-gray-900" />
-                    </div>
-                    <input
-                      type="search"
-                      className="block w-full p-3 ps-13 text-base text-font-color border border-black/60 rounded-lg bg-white"
-                      placeholder="find reviews of the product you need......"
-                      required=""
-                    />
+          {/* Mobile Search Bar */}
+          {showMobileSearch && (
+            <div className="lg:hidden pb-3 px-2">
+              <form className="w-full">
+                <div className="relative">
+                  <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <CiSearch className="text-xl font-bold text-gray-900" />
                   </div>
-                </form>
-              </div>
+                  <input
+                    type="search"
+                    className="block w-full p-3 ps-10 text-sm text-font-color border border-black/60 rounded-lg bg-white placeholder:text-sm"
+                    placeholder="find reviews of the product you need......"
+                    required=""
+                  />
+                </div>
+              </form>
             </div>
           )}
 
+          {/* Mobile Dropdown Menu */}
+          {showDropdown && (
+            <div className="lg:hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+              <div className="w-full max-w-sm bg-[#F5F5F5] rounded-lg shadow-xl relative">
+                {/* Close Button */}
+                <button 
+                  onClick={() => setShowDropdown(false)}
+                  className="absolute top-3 right-3 text-gray-600 hover:text-red-500 transition-colors"
+                >
+                  <MdCloseFullscreen className="text-2xl" />
+                </button>
 
-            {
-                profile &&
-          <div className="w-120 py-20 p-5 z-1 border border-black/20 rounded-md shadow-md absolute left-200 mt-10 bg-white/95">
-            <MdCloseFullscreen onClick={handleProfile} className="text-4xl absolute top-5 right-5 cursor-pointer text-red-500 " />
-            <div className="px-5"  >
-                <BsPersonCircle className="text-6xl " />
-                <h3 className="font-inter py-2 font-medium text-font-color text-3xl" >{user?.displayName} </h3>
+                {/* Dropdown Content */}
+                <div className="p-6 pt-10">
+                  <ul className="space-y-3">
+                    <li 
+                      onClick={() => {
+                        navigation('/profile');
+                        setShowDropdown(false);
+                      }} 
+                      className="flex hover:bg-navbar/50 cursor-pointer items-center gap-x-3 p-3 rounded-md transition-colors"
+                    >
+                      <BsPersonCircle className="text-2xl sm:text-3xl flex-shrink-0" />
+                      <span className="text-lg sm:text-xl font-inria font-bold text-font-color truncate">
+                        {user?.displayName || "Profile"}
+                      </span>
+                    </li>
+                    
+                    <li className="flex hover:bg-navbar/50 cursor-pointer items-center gap-x-3 p-3 rounded-md transition-colors">
+                      <IoMdSettings className="text-2xl sm:text-3xl flex-shrink-0" />
+                      <Link 
+                        to={'/settingpage'} 
+                        onClick={() => setShowDropdown(false)}
+                        className="text-lg sm:text-xl font-inria font-bold text-font-color"
+                      >
+                        Settings and Privacy
+                      </Link>
+                    </li>
+                    
+                    <li className="flex hover:bg-navbar/50 cursor-pointer items-center gap-x-3 p-3 rounded-md transition-colors">
+                      <FaQuestionCircle className="text-2xl sm:text-3xl flex-shrink-0" />
+                      <span className="text-lg sm:text-xl font-inria font-bold text-font-color">
+                        Help and Support
+                      </span>
+                    </li>
+                    
+                    <li 
+                      onClick={() => {
+                        handleLogout();
+                        setShowDropdown(false);
+                      }}
+                      className="flex hover:bg-red-500 cursor-pointer items-center gap-x-3 p-3 rounded-md transition-colors border-t border-gray-300 mt-4 pt-4"
+                    >
+                      <LuLogOut className="text-2xl sm:text-3xl flex-shrink-0" />
+                      <span className="text-lg sm:text-xl font-inria font-bold text-font-color">
+                        Log Out
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <ul className="py-4 px-5" >
-               <li className="flex  items-center gap-x-3" ><AiTwotoneMail className=" text-2xl w-10 h-10 bg-transparent rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light text-font-color font-inria bg-[#FFFFFF] rounded-md hover:bg-navbar/50 shadow-xs border border-black/10 py-2 px-2 w-60 " >{user?.email}</span> </li>     
-               <li className="flex  items-center py-3 gap-x-3" ><IoMdCall  className=" text-xl w-10 h-10 bg-transparent  rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light hover:bg-navbar/50 text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60 " >01600000001</span> </li>   
-                 <Link to={"/totalreview"} className="flex items-center gap-x-3" ><RiHandCoinLine  className=" text-2xl w-10 h-10 bg-transparent  rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50  font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60 " >Total review  10</span> </Link>    
-                  <Link to={'/pendingreview'} className="flex  items-center py-3 gap-x-3" ><ImBubbles4  className=" text-2xl w-10 h-10 bg-gray-200 rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md hover:bg-navbar/50 font-light text-font-color font-inria bg-[#FFFFFF] rounded-md shadow-xs border border-black/10 py-2 px-2 w-60" >Pending review  02</span> </Link> 
-                  <li className="flex  items-center py-3 gap-x-3" ><HiOutlineUserGroup  className=" text-2xl w-10 h-10 bg-gray-200 rounded-full text-primary_white items-center flex justify-center " /> <span className="text-md font-light text-font-color font-inria bg-[#FFFFFF] hover:bg-navbar/50 rounded-md shadow-xs border border-black/10 py-2 px-2 w-60" >Reported review  00 </span> </li>
-               
-            </ul>
-          </div>
-            }
-
+          )}
         </div>
       </nav>
     </header>

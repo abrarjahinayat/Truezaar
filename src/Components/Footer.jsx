@@ -50,7 +50,7 @@ const Footer = () => {
                   <input
                     type="search"
                     id="default-search"
-                    className="block w-full p-2.5 sm:p-3 px-6 sm:px-8 lg:ps-13 text-sm sm:text-base text-font-color border border-black/60 rounded-lg bg-card-bg"
+                    className="block w-full p-2.5 sm:p-3 px-8 sm:px-8 lg:ps-13 text-sm sm:text-base text-font-color border border-black/60 rounded-lg bg-card-bg"
                     placeholder="enter your email"
                     required=""
                   />

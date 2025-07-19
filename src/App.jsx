@@ -15,6 +15,7 @@ import Contactus from './Pages/Contactus';
 import LoginForm from './Pages/LoginForm';
 import SignUpForm from './Pages/SignUpForm';
 import Productdetailes from './Pages/Productdetailes';
+import Profile from './Pages/Profile';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,9 @@ const router = createBrowserRouter([
   }, {
     path: "/productdetailes",
     element: <Productdetailes/>,
+  }, {
+    path: "/profile",
+    element: <Profile/>,
   }, 
 ]);
 

@@ -26,30 +26,34 @@ const FooterBlog = () => {
                     <li className="w-12 h-12 bg-gray-200 text-2xl rounded-full text-primary_white items-center flex justify-center  hover:bg-secondary_color" ><FcGoogle className='text-3xl' /></li>
                     <li className="w-12 h-12 bg-gray-200 text-2xl rounded-full text-primary_white items-center flex justify-center  hover:bg-secondary_color" ><FaInstagramSquare className='text-3xl' /></li>
                    </ul>
-                      <div className='flex items-center py-8  gap-x-2 lg:gap-x-3'>
-                                 <form className="w-[300px] ">
-                                   <label
-                                     htmlFor="default-search"
-                                     className="mb-2 text-sm font-medium text-gray-900 sr-only "
-                                   >
-                                     Search
-                                   </label>
-                                   <div className="relative ">
-                                     <div className="absolute inset-y-0 start-0 flex items-center ps-2 lg:ps-5 pointer-events-none">
-                                      <CiSearch className="text-2xl font-bold text-gray-900 "/>
+                         <div className='flex flex-col sm:flex-row items-center justify-center lg:justify-start py-6 lg:py-8 gap-3 sm:gap-2 lg:gap-3'>
+                                   <form className="w-full sm:w-[250px] lg:w-[300px]">
+                                     <label
+                                       htmlFor="default-search"
+                                       className="mb-2 text-sm font-medium text-gray-900 sr-only"
+                                     >
+                                       Search
+                                     </label>
+                                     <div className="relative">
+                                       <div className="absolute inset-y-0 start-0 flex items-center ps-2 lg:ps-5 pointer-events-none">
+                                         <CiSearch className="text-xl sm:text-2xl font-bold text-gray-900"/>
+                                       </div>
+                                       <input
+                                         type="search"
+                                         id="default-search"
+                                         className="block w-full p-2.5 sm:p-3 px-8 sm:px-8 lg:ps-13 text-sm sm:text-base text-font-color border border-black/60 rounded-lg bg-card-bg"
+                                         placeholder="enter your email"
+                                         required=""
+                                       />
                                      </div>
-                                     <input
-                                       type="search"
-                                       id="default-search"
-                                       className="block w-full p-3 px-8 lg:ps-13 text-base text-font-color border border-black/60 rounded-lg bg-card-bg  "
-                                       placeholder="enter your email"
-                                       required=""
-                                     />
-                                     
-                                   </div>
-                                 </form>
-                                  <button type="button" class="text-font-color   bg-card-bg font-light font-inter rounded-md text-md px-4 lg:px-9  py-3 ">subscribe</button>
-                               </div>
+                                   </form>
+                                   <button 
+                                     type="button" 
+                                     className="text-font-color bg-card-bg font-light font-inter rounded-md text-sm sm:text-md px-6 sm:px-4 lg:px-9 py-2.5 sm:py-3 w-full sm:w-auto hover:bg-gray-100 transition-colors"
+                                   >
+                                     subscribe
+                                   </button>
+                                 </div>
                 </div>
             </div>
             <p className='font-inter font-normal pb-10 text-center text-md text-white'>© 2004-2025 TRUEZAAR-This website for share your ratting and review and experience</p>
